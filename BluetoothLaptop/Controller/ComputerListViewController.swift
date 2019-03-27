@@ -87,7 +87,7 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         
         let computer = computers[indexPath.row]
         cell.MACAddress.text = computer.MACAddress
-        cell.dateAdded.text = computer.dateAdded
+        cell.dateAdded.text = String.DATE_ADDED + computer.dateAdded
         cell.imageView?.image = computer.image
         
         return cell

@@ -41,5 +41,6 @@ extension String {
     static let LAPTOP = "Laptop"
     static let NOT_LAPTOP = "This is not a laptop"
     static let DUPLICATE_DEVICE = "Device already added"
+    static let DATE_ADDED = "Date Added: "
 }
 
