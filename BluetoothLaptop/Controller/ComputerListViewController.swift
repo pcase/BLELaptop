@@ -37,8 +37,17 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         tableView?.dataSource = self
         tableView?.delegate = self
         
-        tableView?.rowHeight = UITableView.automaticDimension
-        tableView?.estimatedRowHeight = 600
+        tableView.estimatedRowHeight = 120.0
+        tableView.rowHeight = UITableView.automaticDimension
+        
+//        tableView?.rowHeight = UITableView.automaticDimension
+//        tableView?.estimatedRowHeight = 44
+//
+//        tableView.sectionHeaderHeight = UITableView.automaticDimension;
+//        tableView.estimatedSectionHeaderHeight = 30;
+//
+//        tableView.sectionFooterHeight = UITableView.automaticDimension;
+//        tableView.estimatedSectionFooterHeight = 30;
     }
     
     override func viewWillAppear(_ animated: Bool) {
