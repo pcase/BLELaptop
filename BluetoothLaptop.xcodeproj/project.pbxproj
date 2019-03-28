@@ -25,7 +25,7 @@
 		DBBCC246224AE4EA00A5D1B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCC245224AE4EA00A5D1B1 /* AppDelegate.swift */; };
 		DBBCC248224AE4EA00A5D1B1 /* ComputerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCC247224AE4EA00A5D1B1 /* ComputerListViewController.swift */; };
 		DBBCC24D224AE4EC00A5D1B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBCC24C224AE4EC00A5D1B1 /* Assets.xcassets */; };
-		DBBCC250224AE4EC00A5D1B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBBCC24E224AE4EC00A5D1B1 /* LaunchScreen.storyboard */; };
+		DBD232DB224C80ED00F66E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBD232DA224C80ED00F66E42 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,8 +62,8 @@
 		DBBCC245224AE4EA00A5D1B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBBCC247224AE4EA00A5D1B1 /* ComputerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerListViewController.swift; sourceTree = "<group>"; };
 		DBBCC24C224AE4EC00A5D1B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DBBCC24F224AE4EC00A5D1B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBBCC251224AE4EC00A5D1B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBD232DA224C80ED00F66E42 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E10535E17821A4DCC0D8A5E4 /* Pods_BluetoothLaptop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluetoothLaptop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,7 +128,7 @@
 				DBBCC259224AE58500A5D1B1 /* Controller */,
 				DBBCC245224AE4EA00A5D1B1 /* AppDelegate.swift */,
 				DB315585224AF441002A5A48 /* Main.storyboard */,
-				DBBCC24E224AE4EC00A5D1B1 /* LaunchScreen.storyboard */,
+				DBD232DA224C80ED00F66E42 /* LaunchScreen.storyboard */,
 				DBBCC24C224AE4EC00A5D1B1 /* Assets.xcassets */,
 				DBBCC251224AE4EC00A5D1B1 /* Info.plist */,
 			);
@@ -227,8 +227,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBBCC250224AE4EC00A5D1B1 /* LaunchScreen.storyboard in Resources */,
 				DBBCC24D224AE4EC00A5D1B1 /* Assets.xcassets in Resources */,
+				DBD232DB224C80ED00F66E42 /* LaunchScreen.storyboard in Resources */,
 				DB315586224AF442002A5A48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,17 +310,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		DBBCC24E224AE4EC00A5D1B1 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DBBCC24F224AE4EC00A5D1B1 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DBBCC252224AE4EC00A5D1B1 /* Debug */ = {

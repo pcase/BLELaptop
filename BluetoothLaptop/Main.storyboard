@@ -150,19 +150,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tUY-P3-xKk">
-                                <rect key="frame" x="99" y="143" width="404" height="719"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QSE-v6-PrF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="799"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taking a Guess" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrG-zI-XfF">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="80"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUY-P3-xKk">
+                                        <rect key="frame" x="0.0" y="80" width="404" height="719"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="719" id="FKQ-Hd-sL1"/>
+                                            <constraint firstAttribute="width" constant="404" id="yqV-vU-gjJ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="719" id="FKQ-Hd-sL1"/>
-                                    <constraint firstAttribute="width" constant="404" id="yqV-vU-gjJ"/>
+                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="bottom" secondItem="tUY-P3-xKk" secondAttribute="top" constant="-10" id="2tW-wa-4xB"/>
+                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="top" secondItem="QSE-v6-PrF" secondAttribute="top" constant="80" id="7Bi-xv-hBl"/>
+                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="leading" secondItem="QSE-v6-PrF" secondAttribute="leading" constant="10" id="9Nm-Ap-UT3"/>
+                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="leading" secondItem="QSE-v6-PrF" secondAttribute="leading" constant="10" id="K2x-7g-Rka"/>
+                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="trailing" secondItem="QSE-v6-PrF" secondAttribute="trailing" constant="-10" id="Sds-x3-g4j"/>
+                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="trailing" secondItem="QSE-v6-PrF" secondAttribute="trailing" constant="-10" id="ezf-me-XSq"/>
+                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="top" secondItem="QSE-v6-PrF" secondAttribute="top" constant="10" id="rNh-XR-PCw"/>
+                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="bottom" secondItem="QSE-v6-PrF" secondAttribute="bottom" constant="-10" id="wnq-86-agZ"/>
                                 </constraints>
-                            </imageView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qkN-t8-wRx" firstAttribute="trailing" secondItem="tUY-P3-xKk" secondAttribute="trailing" constant="5" id="e9D-cJ-EeA"/>
-                            <constraint firstItem="qkN-t8-wRx" firstAttribute="bottom" secondItem="tUY-P3-xKk" secondAttribute="bottom" constant="5" id="fFm-Hf-VuR"/>
-                            <constraint firstItem="tUY-P3-xKk" firstAttribute="top" secondItem="qkN-t8-wRx" secondAttribute="top" constant="50" id="od9-9t-oaD"/>
+                            <constraint firstItem="qkN-t8-wRx" firstAttribute="leading" secondItem="QSE-v6-PrF" secondAttribute="leading" id="3aD-KO-L3u"/>
+                            <constraint firstItem="qkN-t8-wRx" firstAttribute="trailing" secondItem="QSE-v6-PrF" secondAttribute="trailing" id="Yhw-PB-VNo"/>
+                            <constraint firstItem="qkN-t8-wRx" firstAttribute="top" secondItem="QSE-v6-PrF" secondAttribute="top" id="e2k-Gx-oxv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qkN-t8-wRx"/>
                     </view>
@@ -175,7 +196,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iA-d4-aYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="g4o-x8-reF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2487" y="134"/>
+            <point key="canvasLocation" x="2486.9565217391305" y="133.92857142857142"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="c9o-0T-4pF">
