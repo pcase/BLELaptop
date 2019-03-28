@@ -159,39 +159,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="QSE-v6-PrF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="799"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="2h3-su-IR3">
+                                <rect key="frame" x="10" y="96" width="355" height="521"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taking a Guess" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mrG-zI-XfF">
-                                        <rect key="frame" x="0.0" y="0.0" width="365" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="39"/>
+                                        <viewLayoutGuide key="safeArea" id="Bif-v6-z6Z"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tUY-P3-xKk">
-                                        <rect key="frame" x="0.0" y="80" width="320" height="719"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tUY-P3-xKk">
+                                        <rect key="frame" x="0.0" y="71" width="355" height="450"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="719" id="FKQ-Hd-sL1"/>
-                                            <constraint firstAttribute="width" constant="404" id="yqV-vU-gjJ"/>
+                                            <constraint firstAttribute="width" constant="355" id="6we-3s-8Lt"/>
+                                            <constraint firstAttribute="height" constant="450" id="D7k-rX-yNS"/>
                                         </constraints>
+                                        <viewLayoutGuide key="safeArea" id="8Sw-no-8wQ"/>
                                     </imageView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="bottom" secondItem="tUY-P3-xKk" secondAttribute="top" constant="-10" id="2tW-wa-4xB"/>
-                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="top" secondItem="QSE-v6-PrF" secondAttribute="top" constant="80" id="7Bi-xv-hBl"/>
-                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="leading" secondItem="QSE-v6-PrF" secondAttribute="leading" constant="10" id="9Nm-Ap-UT3"/>
-                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="leading" secondItem="QSE-v6-PrF" secondAttribute="leading" constant="10" id="K2x-7g-Rka"/>
-                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="trailing" secondItem="QSE-v6-PrF" secondAttribute="trailing" constant="-10" id="Sds-x3-g4j"/>
-                                    <constraint firstItem="tUY-P3-xKk" firstAttribute="trailing" secondItem="QSE-v6-PrF" secondAttribute="trailing" constant="-10" id="ezf-me-XSq"/>
-                                    <constraint firstItem="mrG-zI-XfF" firstAttribute="top" secondItem="QSE-v6-PrF" secondAttribute="top" constant="10" id="rNh-XR-PCw"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qkN-t8-wRx" firstAttribute="leading" secondItem="QSE-v6-PrF" secondAttribute="leading" id="3aD-KO-L3u"/>
-                            <constraint firstItem="qkN-t8-wRx" firstAttribute="trailing" secondItem="QSE-v6-PrF" secondAttribute="trailing" id="Yhw-PB-VNo"/>
-                            <constraint firstItem="qkN-t8-wRx" firstAttribute="top" secondItem="QSE-v6-PrF" secondAttribute="top" id="e2k-Gx-oxv"/>
+                            <constraint firstItem="2h3-su-IR3" firstAttribute="leading" secondItem="fWy-b8-tTo" secondAttribute="leading" constant="10" id="2Hb-ml-8OS"/>
+                            <constraint firstItem="2h3-su-IR3" firstAttribute="top" secondItem="qkN-t8-wRx" secondAttribute="top" constant="32" id="3Vm-51-Vl5"/>
+                            <constraint firstItem="qkN-t8-wRx" firstAttribute="trailing" secondItem="2h3-su-IR3" secondAttribute="trailing" constant="10" id="Mdm-ao-ENL"/>
+                            <constraint firstItem="qkN-t8-wRx" firstAttribute="bottom" secondItem="2h3-su-IR3" secondAttribute="bottom" constant="50" id="xQm-VL-ryA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qkN-t8-wRx"/>
                     </view>
@@ -204,7 +198,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iA-d4-aYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="g4o-x8-reF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2486.9565217391305" y="133.92857142857142"/>
+            <point key="canvasLocation" x="2485.5999999999999" y="133.5832083958021"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="c9o-0T-4pF">
