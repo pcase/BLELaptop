@@ -66,7 +66,6 @@ class PairComputerViewController: UIViewController, UIImagePickerControllerDeleg
         // Do image recognition
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = image
-            imageView.roundCornersForAspectFit(radius: 15)
             imagePicker.dismiss(animated: true, completion: nil)
             
             let visualRecognition = VisualRecognition(version: version, apiKey: apiKey)
@@ -93,13 +92,12 @@ class PairComputerViewController: UIViewController, UIImagePickerControllerDeleg
                     self.classificationResults.append(classes[index].className)
                 }
                 
-                print(classifiedImages)
+//                print(classifiedImages)
                 
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
-                    if self.isLaptop(guess: self.classificationResults[0]) {
+                     if self.isLaptop(guessList: Array(self.classificationResults.prefix(3))) {
                         self.performSegue(withIdentifier: "showConfirmationView", sender: self)
-                        //                            self.showGuessAlert(guess: self.classificationResults[0])
                     } else {
                         self.showNotLaptopAlert()
                     }
@@ -110,9 +108,18 @@ class PairComputerViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
+    func isLaptop(guessList: [String]) -> Bool {
+        for index in 0..<guessList.count {
+            if isLaptop(guess: guessList[index]) {
+                return true
+            }
+        }
+        return false
+    }
+    
     func isLaptop(guess: String) -> Bool {
         let lowercasedGuess = guess.lowercased()
-        if lowercasedGuess.contains("laptop") || lowercasedGuess.contains("computer") {
+        if lowercasedGuess.contains(String.LAPTOP.lowercased()) || lowercasedGuess.contains(String.PORTABLE.lowercased()) {
             return true
         } else {
             return false

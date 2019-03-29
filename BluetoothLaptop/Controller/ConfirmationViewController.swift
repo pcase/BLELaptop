@@ -28,7 +28,6 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
         super.viewDidLoad()
         
         imageView.image = image
-        imageView.roundCornersForAspectFit(radius: 15)
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,11 +64,8 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     }
     
     // MARK: BLE Scanning
+    
     func scanBLEDevices() {
-        
-        //if you pass nil in the first parameter, then scanForPeriperals will look for any devices.
-        centralManager?.scanForPeripherals(withServices: nil, options: nil)
-        
         //stop scanning after 3 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.stopScanForBLEDevices()
@@ -86,14 +82,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     
     func centralManager(_ manager: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData advertisement: [String : Any], rssi: NSNumber) {
         
-        var MACAddress: String = ""
-        if let name = peripheral.name {
-            MACAddress = name
-            print("Found \"\(name)\" peripheral (RSSI: \(rssi))")
-        } else {
-            MACAddress = "AA:BB:CC:DD:EE:FF"
-            print("Found unnamed peripheral (RSSI: \(rssi))")
-        }
+        let MACAddress = peripheral.identifier.uuidString
         computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
         stopProgressAndTimer()
         stopScanForBLEDevices()

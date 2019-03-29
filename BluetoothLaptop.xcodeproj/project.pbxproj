@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9E3F926482D821BB7F79E44B /* Pods_BluetoothLaptop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E10535E17821A4DCC0D8A5E4 /* Pods_BluetoothLaptop.framework */; };
 		DB31556B224AE9BB002A5A48 /* Computer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31556A224AE9BB002A5A48 /* Computer.swift */; };
-		DB31556D224AEA1E002A5A48 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31556C224AEA1E002A5A48 /* UIImageView.swift */; };
 		DB31556F224AEA87002A5A48 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31556E224AEA87002A5A48 /* TableViewCell.swift */; };
 		DB315571224AEAB8002A5A48 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315570224AEAB8002A5A48 /* String.swift */; };
 		DB315575224AEDF0002A5A48 /* PairComputerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315574224AEDF0002A5A48 /* PairComputerViewController.swift */; };
@@ -46,7 +45,6 @@
 		2A01EDEA4BA18BA42647F031 /* Pods-BluetoothLaptop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothLaptop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothLaptop/Pods-BluetoothLaptop.debug.xcconfig"; sourceTree = "<group>"; };
 		5675A123CD1AD205D27EED43 /* Pods-BluetoothLaptop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BluetoothLaptop.release.xcconfig"; path = "Pods/Target Support Files/Pods-BluetoothLaptop/Pods-BluetoothLaptop.release.xcconfig"; sourceTree = "<group>"; };
 		DB31556A224AE9BB002A5A48 /* Computer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Computer.swift; sourceTree = "<group>"; };
-		DB31556C224AEA1E002A5A48 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		DB31556E224AEA87002A5A48 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DB315570224AEAB8002A5A48 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DB315574224AEDF0002A5A48 /* PairComputerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairComputerViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 		DBBCC258224AE58000A5D1B1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DB31556C224AEA1E002A5A48 /* UIImageView.swift */,
 				DB31556E224AEA87002A5A48 /* TableViewCell.swift */,
 			);
 			path = View;
@@ -297,7 +294,6 @@
 				DB31556F224AEA87002A5A48 /* TableViewCell.swift in Sources */,
 				DB315575224AEDF0002A5A48 /* PairComputerViewController.swift in Sources */,
 				DB315577224AEE46002A5A48 /* ConfirmationViewController.swift in Sources */,
-				DB31556D224AEA1E002A5A48 /* UIImageView.swift in Sources */,
 				DB315579224AEF97002A5A48 /* Bluetooth.swift in Sources */,
 				DB31556B224AE9BB002A5A48 /* Computer.swift in Sources */,
 				DBBCC248224AE4EA00A5D1B1 /* ComputerListViewController.swift in Sources */,

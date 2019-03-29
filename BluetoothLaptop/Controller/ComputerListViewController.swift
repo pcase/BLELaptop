@@ -188,6 +188,11 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
     private func loadComputers() -> [Computer]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Computer.ArchiveURL.path) as? [Computer]
     }
+    
+    private func clearComputers() {
+        computers.removeAll()
+        saveComputers()
+    }
 }
 
 
