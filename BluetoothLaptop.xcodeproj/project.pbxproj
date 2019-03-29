@@ -12,7 +12,6 @@
 		DB31556D224AEA1E002A5A48 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31556C224AEA1E002A5A48 /* UIImageView.swift */; };
 		DB31556F224AEA87002A5A48 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB31556E224AEA87002A5A48 /* TableViewCell.swift */; };
 		DB315571224AEAB8002A5A48 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315570224AEAB8002A5A48 /* String.swift */; };
-		DB315573224AEDBF002A5A48 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315572224AEDBF002A5A48 /* AddImageViewController.swift */; };
 		DB315575224AEDF0002A5A48 /* PairComputerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315574224AEDF0002A5A48 /* PairComputerViewController.swift */; };
 		DB315577224AEE46002A5A48 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315576224AEE46002A5A48 /* ConfirmationViewController.swift */; };
 		DB315579224AEF97002A5A48 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB315578224AEF97002A5A48 /* Bluetooth.swift */; };
@@ -50,7 +49,6 @@
 		DB31556C224AEA1E002A5A48 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		DB31556E224AEA87002A5A48 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		DB315570224AEAB8002A5A48 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		DB315572224AEDBF002A5A48 /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		DB315574224AEDF0002A5A48 /* PairComputerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairComputerViewController.swift; sourceTree = "<group>"; };
 		DB315576224AEE46002A5A48 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		DB315578224AEF97002A5A48 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				DBBCC247224AE4EA00A5D1B1 /* ComputerListViewController.swift */,
-				DB315572224AEDBF002A5A48 /* AddImageViewController.swift */,
 				DB315574224AEDF0002A5A48 /* PairComputerViewController.swift */,
 				DB315576224AEE46002A5A48 /* ConfirmationViewController.swift */,
 			);
@@ -301,7 +298,6 @@
 				DB315575224AEDF0002A5A48 /* PairComputerViewController.swift in Sources */,
 				DB315577224AEE46002A5A48 /* ConfirmationViewController.swift in Sources */,
 				DB31556D224AEA1E002A5A48 /* UIImageView.swift in Sources */,
-				DB315573224AEDBF002A5A48 /* AddImageViewController.swift in Sources */,
 				DB315579224AEF97002A5A48 /* Bluetooth.swift in Sources */,
 				DB31556B224AE9BB002A5A48 /* Computer.swift in Sources */,
 				DBBCC248224AE4EA00A5D1B1 /* ComputerListViewController.swift in Sources */,

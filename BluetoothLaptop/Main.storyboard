@@ -32,7 +32,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="pairButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZ1-cj-Vqs"/>
-                                    <segue destination="diF-B4-s4m" kind="show" identifier="showAddImageView" id="jja-E0-a01"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wGq-ZO-9dw">
@@ -127,29 +126,12 @@
                     <connections>
                         <outlet property="pairButton" destination="SMj-Sq-i6z" id="v20-Fa-DSM"/>
                         <outlet property="tableView" destination="wGq-ZO-9dw" id="4d3-TQ-zym"/>
+                        <segue destination="0jo-7n-PeI" kind="show" identifier="showPairComputerView" id="0U6-29-ybE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="133.25892857142856"/>
-        </scene>
-        <!--Add Image View Controller-->
-        <scene sceneID="HZ3-ky-FNq">
-            <objects>
-                <viewController id="diF-B4-s4m" customClass="AddImageViewController" customModule="BluetoothLaptop" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pTq-4t-F5c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="K2p-m2-G8p"/>
-                    </view>
-                    <connections>
-                        <segue destination="0jo-7n-PeI" kind="show" identifier="showPairComputerView" id="ZTD-MD-xL7"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="518-2w-3qx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1783" y="134"/>
         </scene>
         <!--Pair Computer View Controller-->
         <scene sceneID="ESK-Nj-XxS">
@@ -191,14 +173,14 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="tUY-P3-xKk" id="xgs-og-CX6"/>
-                        <segue destination="AjI-lp-way" kind="show" identifier="showConfirmationView" id="J8z-TQ-3vH"/>
                         <segue destination="g4o-x8-reF" kind="unwind" identifier="unwindSegueToVC1" unwindAction="unwindToVC1WithSegue:" id="c9K-pX-yio"/>
+                        <segue destination="AjI-lp-way" kind="show" identifier="showConfirmationView" id="pIZ-jy-ePb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9iA-d4-aYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="g4o-x8-reF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2485.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1758" y="133"/>
         </scene>
         <!--Confirmation View Controller-->
         <scene sceneID="c9o-0T-4pF">
@@ -290,7 +272,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADe-Rc-a0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WHH-re-5Ai" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3165.217391304348" y="141.29464285714286"/>
+            <point key="canvasLocation" x="2458" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wAv-58-4cK">

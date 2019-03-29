@@ -14,6 +14,7 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var pairButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    var useCamera : Bool = false
     var computers = [Computer]()
     var currentComputer: Computer? = nil
     
@@ -30,9 +31,7 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         if let currentCurrentComputer = currentComputer {
             addComputerToList(computer: currentCurrentComputer)
         }
-        SVProgressHUD.show()
         saveComputers()
-        SVProgressHUD.dismiss()
         
         tableView?.dataSource = self
         tableView?.delegate = self
@@ -59,19 +58,61 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         if let currentCurrentComputer = currentComputer {
             addComputerToList(computer: currentCurrentComputer)
         }
-        SVProgressHUD.show()
         saveComputers()
-        SVProgressHUD.dismiss()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is PairComputerViewController
+        {
+            let vc = segue.destination as? PairComputerViewController
+            vc?.useCamera = self.useCamera
+            if (self.useCamera) {
+                vc?.imagePicker.sourceType = .camera
+            } else {
+                vc?.imagePicker.sourceType = .photoLibrary
+            }
+            vc?.navigationItem.title = String.TAKE_A_PICTURE
+        }
+    }
+
+    
     @IBAction func pairButtonClicked(_ sender: UIButton) {
-        performSegue(withIdentifier: "showAddImageView", sender: self)
+//        performSegue(withIdentifier: "showAddImageView", sender: self)
+        pickImageSourceAlert()
     }
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
         if let currentCurrentComputer = currentComputer {
             addComputerToList(computer: currentCurrentComputer)
         }
+    }
+    
+    /**
+     Displays an alert to choose either the camera or the photo library as the image source
+     
+     - Parameter none:
+     
+     - Throws:
+     
+     - Returns:
+     */
+    func pickImageSourceAlert() {
+        let alert = UIAlertController(title: String.EMPTY, message: String.CAMERA_OR_PHOTO, preferredStyle: .alert)
+        alert.isModalInPopover = true
+        
+        alert.addAction(UIAlertAction(title: String.CAMERA, style: .default, handler: { (UIAlertAction) in
+            self.navigationItem.title = String.TAKE_A_PICTURE
+            self.useCamera = true
+            self.performSegue(withIdentifier: "showPairComputerView", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: String.PHOTO_LIBRARY, style: .default, handler: { (UIAlertAction) in
+            self.navigationItem.title = String.SELECT_A_PICTURE
+            self.useCamera = false
+            self.performSegue(withIdentifier: "showPairComputerView", sender: self)
+        }))
+        self.present(alert,animated: true, completion: nil )
     }
     
     /**
@@ -143,12 +184,14 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
     //MARK: Private Methods
     
     private func saveComputers() {
+        SVProgressHUD.show()
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(computers, toFile: Computer.ArchiveURL.path)
         if isSuccessfulSave {
             print("Computers successfully saved.")
         } else {
             print("Failed to save computers...")
         }
+        SVProgressHUD.dismiss()
     }
     
     private func loadComputers() -> [Computer]?  {
