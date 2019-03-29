@@ -38,15 +38,6 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.estimatedRowHeight = 120.0
         tableView.rowHeight = UITableView.automaticDimension
-        
-//        tableView?.rowHeight = UITableView.automaticDimension
-//        tableView?.estimatedRowHeight = 44
-//
-//        tableView.sectionHeaderHeight = UITableView.automaticDimension;
-//        tableView.estimatedSectionHeaderHeight = 30;
-//
-//        tableView.sectionFooterHeight = UITableView.automaticDimension;
-//        tableView.estimatedSectionFooterHeight = 30;
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,13 +63,11 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
             } else {
                 vc?.imagePicker.sourceType = .photoLibrary
             }
-            vc?.navigationItem.title = String.TAKE_A_PICTURE
         }
     }
 
     
     @IBAction func pairButtonClicked(_ sender: UIButton) {
-//        performSegue(withIdentifier: "showAddImageView", sender: self)
         pickImageSourceAlert()
     }
     
@@ -102,13 +91,11 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         alert.isModalInPopover = true
         
         alert.addAction(UIAlertAction(title: String.CAMERA, style: .default, handler: { (UIAlertAction) in
-            self.navigationItem.title = String.TAKE_A_PICTURE
             self.useCamera = true
             self.performSegue(withIdentifier: "showPairComputerView", sender: self)
         }))
         
         alert.addAction(UIAlertAction(title: String.PHOTO_LIBRARY, style: .default, handler: { (UIAlertAction) in
-            self.navigationItem.title = String.SELECT_A_PICTURE
             self.useCamera = false
             self.performSegue(withIdentifier: "showPairComputerView", sender: self)
         }))
@@ -153,11 +140,9 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         if !found {
             computers.append(computer)
         } else {
-            //            showDuplicateDeviceError()
+            showDuplicateDeviceError()
         }
-        SVProgressHUD.show()
         saveComputers()
-        SVProgressHUD.dismiss()
         currentComputer = nil;
         self.tableView.reloadData()
     }
@@ -172,13 +157,19 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
      - Returns:
      */
     func showDuplicateDeviceError() {
-        let alert = UIAlertController(title: String.EMPTY, message: String.DUPLICATE_DEVICE, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.dismiss(animated: false, completion: nil)
-        }))
-        
-        self.present(alert, animated: false, completion: nil)
+        let alertController = UIAlertController(title: String.EMPTY, message: String.DUPLICATE_DEVICE, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+        }
+        alertController.addAction(OKAction)
+        let screen = UIScreen.main
+        let screenBounds = screen.bounds
+        let alertWindow = UIWindow(frame: screenBounds)
+        alertWindow.windowLevel = UIWindow.Level.alert
+        let vc = UIViewController()
+        alertWindow.rootViewController = vc
+        alertWindow.screen = screen
+        alertWindow.isHidden = false
+        vc.present(alertController, animated: true)
     }
     
     //MARK: Private Methods

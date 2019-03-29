@@ -22,6 +22,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     @IBOutlet weak var imageView: UIImageView!
     var computer: Computer?
     var timer:Timer?
+    var timeoutSeconds = 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +50,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
         self.centralManager = CBCentralManager(delegate: nil, queue: nil)
         self.centralManager?.delegate = self
         SVProgressHUD.show()
+        timer = Timer.scheduledTimer(timeInterval: timeoutSeconds, target: self, selector: #selector(timeout), userInfo: nil, repeats: false)
         scanBLEDevices()
     }
     
@@ -70,7 +72,6 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
         
         //stop scanning after 3 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            //            self.showTimeoutAlert()
             self.stopScanForBLEDevices()
         }
     }
@@ -78,7 +79,6 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     func stopScanForBLEDevices() {
         SVProgressHUD.dismiss()
         centralManager?.stopScan()
-        //        self.showTimeoutAlert()
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
@@ -95,6 +95,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
             print("Found unnamed peripheral (RSSI: \(rssi))")
         }
         computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
+        stopProgressAndTimer()
         stopScanForBLEDevices()
     }
     
@@ -221,14 +222,50 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
      - Returns:
      */
     func showTimeoutAlert() {
-        let alert = UIAlertController(title: String.EMPTY, message: String.NO_DEVICES_FOUND, preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            self.dismiss(animated: false, completion: nil)
-            self.performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
-        }))
-        
-        self.present(alert, animated: true)
+        let alertController = UIAlertController(title: String.EMPTY, message: String.NO_DEVICES_FOUND, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+        }
+        alertController.addAction(OKAction)
+        let screen = UIScreen.main
+        let screenBounds = screen.bounds
+        let alertWindow = UIWindow(frame: screenBounds)
+        alertWindow.windowLevel = UIWindow.Level.alert
+        let vc = UIViewController()
+        alertWindow.rootViewController = vc
+        alertWindow.screen = screen
+        alertWindow.isHidden = false
+        vc.present(alertController, animated: true)
+    }
+    
+    /**
+     Stops the progress spinner and timer.
+     
+     - Parameter none:
+     
+     - Throws:
+     
+     - Returns:
+     */
+    func stopProgressAndTimer() {
+        if SVProgressHUD.isVisible() {
+            SVProgressHUD.dismiss()
+        }
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    /**
+     Stops the progress spinner and the timer when the app times out
+     
+     - Parameter none:
+     
+     - Throws:
+     
+     - Returns:
+     */
+    @objc func timeout() {
+        stopProgressAndTimer()
+        showTimeoutAlert()
     }
 }
 
