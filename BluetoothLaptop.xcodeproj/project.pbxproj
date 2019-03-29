@@ -24,6 +24,7 @@
 		DBBCC248224AE4EA00A5D1B1 /* ComputerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCC247224AE4EA00A5D1B1 /* ComputerListViewController.swift */; };
 		DBBCC24D224AE4EC00A5D1B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBBCC24C224AE4EC00A5D1B1 /* Assets.xcassets */; };
 		DBD232DB224C80ED00F66E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBD232DA224C80ED00F66E42 /* LaunchScreen.storyboard */; };
+		DBF8104B224EC4F300867E70 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DBF8104A224EC4F300867E70 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 		DBBCC24C224AE4EC00A5D1B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBBCC251224AE4EC00A5D1B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBD232DA224C80ED00F66E42 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBF8104A224EC4F300867E70 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		E10535E17821A4DCC0D8A5E4 /* Pods_BluetoothLaptop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BluetoothLaptop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +105,7 @@
 				DB31557C224AF21B002A5A48 /* VisualRecognitionV3.framework */,
 				DBBCC244224AE4EA00A5D1B1 /* BluetoothLaptop */,
 				DBBCC243224AE4EA00A5D1B1 /* Products */,
+				DBF8104A224EC4F300867E70 /* logo.png */,
 				0056191140951FCC6FAB493B /* Pods */,
 				6FBB90FCABF27D8C82D713E0 /* Frameworks */,
 			);
@@ -221,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF8104B224EC4F300867E70 /* logo.png in Resources */,
 				DBBCC24D224AE4EC00A5D1B1 /* Assets.xcassets in Resources */,
 				DBD232DB224C80ED00F66E42 /* LaunchScreen.storyboard in Resources */,
 				DB315586224AF442002A5A48 /* Main.storyboard in Resources */,
