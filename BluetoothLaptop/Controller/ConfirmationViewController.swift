@@ -22,7 +22,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     @IBOutlet weak var imageView: UIImageView!
     var computer: Computer?
     var timer:Timer?
-    var timeoutSeconds = 10.0
+    var timeoutSeconds = 30.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +67,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     
     func scanBLEDevices() {
         //stop scanning after 3 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeoutSeconds) {
             self.stopScanForBLEDevices()
         }
     }
@@ -78,14 +78,48 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
         performSegue(withIdentifier: "unwindSegueToVC1", sender: self)
     }
     
+    func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
+        print("***** peripheralDidUpdateName *****", peripheral)
+//        var MACAddress = ""
+//        if let peripheralName = peripheral.name {
+//            MACAddress = peripheralName
+//            computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
+//            stopProgressAndTimer()
+//            stopScanForBLEDevices()
+//        }
+    }
+    
     // MARK: - CBCentralManagerDelegate Methods
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+         print("***** didConnect *****", peripheral.name)
+    }
     
     func centralManager(_ manager: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData advertisement: [String : Any], rssi: NSNumber) {
         
-        let MACAddress = peripheral.identifier.uuidString
-        computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
-        stopProgressAndTimer()
-        stopScanForBLEDevices()
+        print("***** didDiscover *****", peripheral.name)
+        
+        let peripheralLocalName_advertisement = ((advertisement as NSDictionary).value(forKey: "kCBAdvDataLocalName")) as? String
+        
+        if (((advertisement as NSDictionary).value(forKey: "kCBAdvDataLocalName")) != nil) {
+        
+        print("***** peripheral local name *****", peripheralLocalName_advertisement)//peripheral name from advertismentData
+        
+        print("***** advertisement *****",peripheral.name)//peripheral name from peripheralData
+    }
+    
+//        let MACAddress = peripheral.identifier.uuidString
+//        var MACAddress = ""
+//        if let peripheralName = peripheral.name {
+//            print(peripheralName)
+//        }
+//        if let peripheralName = peripheral.name {
+//            print("didDiscover", peripheralName)
+//            MACAddress = peripheralName
+//            computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
+//            stopProgressAndTimer()
+//            stopScanForBLEDevices()
+//        }
     }
     
     func centralManagerDidUpdateState(_ manager: CBCentralManager) {

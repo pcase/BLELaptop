@@ -20,7 +20,7 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         SVProgressHUD.show()
         if let savedComputers = loadComputers() {
             computers.removeAll()
@@ -36,6 +36,7 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         tableView?.dataSource = self
         tableView?.delegate = self
         
+        tableView.contentInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         tableView.estimatedRowHeight = 120.0
         tableView.rowHeight = UITableView.automaticDimension
     }
