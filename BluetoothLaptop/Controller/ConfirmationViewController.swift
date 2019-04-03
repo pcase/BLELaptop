@@ -80,13 +80,6 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     
     func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
         print("***** peripheralDidUpdateName *****", peripheral)
-//        var MACAddress = ""
-//        if let peripheralName = peripheral.name {
-//            MACAddress = peripheralName
-//            computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
-//            stopProgressAndTimer()
-//            stopScanForBLEDevices()
-//        }
     }
     
     // MARK: - CBCentralManagerDelegate Methods
@@ -107,19 +100,14 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
         
         print("***** advertisement *****",peripheral.name)//peripheral name from peripheralData
     }
-    
-//        let MACAddress = peripheral.identifier.uuidString
-//        var MACAddress = ""
-//        if let peripheralName = peripheral.name {
-//            print(peripheralName)
-//        }
-//        if let peripheralName = peripheral.name {
-//            print("didDiscover", peripheralName)
-//            MACAddress = peripheralName
-//            computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
-//            stopProgressAndTimer()
-//            stopScanForBLEDevices()
-//        }
+        var MACAddress = ""
+        if let peripheralName = peripheral.name {
+            print("didDiscover", peripheralName)
+            MACAddress = peripheralName
+            computer = Computer(dateAdded: getDate(), MACAddress: MACAddress, image: image)
+            stopProgressAndTimer()
+            stopScanForBLEDevices()
+        }
     }
     
     func centralManagerDidUpdateState(_ manager: CBCentralManager) {
@@ -140,7 +128,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     func getDate() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
+        formatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
         return formatter.string(from: date)
     }
     

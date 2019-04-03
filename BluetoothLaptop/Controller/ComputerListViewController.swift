@@ -13,6 +13,7 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var pairButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var clearButton: UIBarButtonItem!
     
     var useCamera : Bool = false
     var computers = [Computer]()
@@ -67,6 +68,10 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
 
+    @IBAction func clearButtonClicked(_ sender: UIBarButtonItem) {
+        clearComputers()
+        tableView.reloadData()
+    }
     
     @IBAction func pairButtonClicked(_ sender: UIButton) {
         pickImageSourceAlert()
