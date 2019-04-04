@@ -54,6 +54,11 @@ class ComputerListViewController: UIViewController, UITableViewDataSource, UITab
         saveComputers()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.destination is PairComputerViewController
