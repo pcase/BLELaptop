@@ -218,7 +218,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
         } else if (characteristic.uuid.uuidString == BLECharacteristic) {
             //data received
             if(characteristic.value != nil) {
-                let stringValue = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
+                _ = String(data: characteristic.value!, encoding: String.Encoding.utf8)!
             }
         }
     }
