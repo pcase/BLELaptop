@@ -22,7 +22,7 @@ class ConfirmationViewController: UIViewController, CBCentralManagerDelegate, CB
     @IBOutlet weak var imageView: UIImageView!
     var computer: Computer?
     var timer:Timer?
-    var timeoutSeconds = 30.0
+    var timeoutSeconds = 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()

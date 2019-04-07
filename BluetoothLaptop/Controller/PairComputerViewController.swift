@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import SVProgressHUD
-import VisualRecognitionV3
+import VisualRecognition
 
 class PairComputerViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate {
     
@@ -72,28 +72,32 @@ class PairComputerViewController: UIViewController, UIImagePickerControllerDeleg
             let imageData = image.jpegData(compressionQuality: 0.01)
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let fileURL = documentsURL.appendingPathComponent("tempImage.jpg")
-            try? imageData?.write(to: fileURL, options: [])
-            let failure = { (error: Error) in print(error) }
-            
-            visualRecognition.classify(imagesFile: fileURL) { response, error in
+            ((try? imageData?.write(to: fileURL, options: [])) as ()??)
+            _ = {
+                (error: Error) in print(error)
+            }
+
+           visualRecognition.classify(imagesFile: imageData) { response, error in
+                
                 if let error = error {
                     print(error)
                 }
-                
+            
                 guard let classifiedImages = response?.result else {
                     print("Failed to classify the image")
                     return
                 }
-                
+            
                 let classes = classifiedImages.images.first!.classifiers.first!.classes
+            
                 self.classificationResults = []
-                
+
                 for index in 0..<classes.count {
                     self.classificationResults.append(classes[index].className)
                 }
                 
-//                print(classifiedImages)
-                
+                print("****** Classified results: ", self.classificationResults)
+            
                 DispatchQueue.main.async {
                     SVProgressHUD.dismiss()
                      if self.isLaptop(guessList: Array(self.classificationResults.prefix(3))) {
@@ -103,9 +107,37 @@ class PairComputerViewController: UIViewController, UIImagePickerControllerDeleg
                     }
                 }
             }
-        } else {
-            print("There was an error picking the image")
         }
+    }
+    
+    func cropToCenter(image: UIImage) -> UIImage {
+        let contextImage: UIImage = UIImage(cgImage: image.cgImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = contextSize.width
+        var cgheight: CGFloat = contextSize.height
+        
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else if contextSize.width < contextSize.height {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+        
+        // crop image to square
+        let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
+        let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
     }
     
     func isLaptop(guessList: [String]) -> Bool {
